@@ -15,13 +15,17 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
-      // examine the response from the server request:
-      console.log(data);
-
+      // // examine the response from the server request:
+      // console.log("DATA --->", data);
+      // Messages = JSON.parse(JSON.stringify(data.results));
+      // console.log("HERE  --->", typeof Messages);
+      // Messages.update(data.results, MessagesView.render)
+      MessagesView.render(data.results);
       callback();
     });
   },
@@ -36,3 +40,6 @@ var App = {
     FormView.setStatus(false);
   }
 };
+
+
+
