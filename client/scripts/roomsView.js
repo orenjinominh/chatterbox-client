@@ -3,10 +3,9 @@ var RoomsView = {
   $button: $('#rooms button'), // adds a room
   $select: $('#rooms select'), // dropdown menu
 
+
   initialize: function() {
-    $('#addRoom').on( 'click', function() {
-      
-    });
+    Rooms.add();
   },
 
   // this render function processes the data.results array of objets
@@ -25,8 +24,6 @@ var RoomsView = {
       array.forEach(function(obj) { //go thru data.results again
         // check if value of obj.roomname = room selected variable
         var selectedRoom = $('#rooms select').children('option').filter(':selected').text();
-        console.log('Room --->', selectedRoom);
-        // console.log(obj);
         if (obj.roomname === selectedRoom) {
           var message = {};
           message.username = obj.username;
@@ -37,6 +34,7 @@ var RoomsView = {
         }
       });
     });
+
   },
 
   // this renderRoom function takes a string and adds room to dropdown menu $('#rooms select')
@@ -47,30 +45,4 @@ var RoomsView = {
     $('#rooms select').append(option);
   },
 
-  // renderMessage: function(message) {
-  //   $('#chats').prepend(???);
-  // }
 };
-
-// use jquery to grab value
-// array.forEach(function(obj){  //go thru data.results again
-//   // check if value of obj.roomname = room selected variable
-//   var selectedRoom = $("#rooms select").children("option").filter(":selected").text();
-//   console.log("Room --->", selectedRoom);
-//   // console.log(obj);
-
-//   if (obj.roomname === selectedRoom) {
-//     var message = {};
-//     message.username = obj.username;
-//     message.roomname = obj.roomname;
-//     message.text = obj.text;
-//     MessagesView.renderMessage(message);
-//     // $('#chats').append(chatMes);
-//     return message;
-//   }
-//   // if (!$('#chats').children().hasClass(selectedRoom)) {
-//   //   $('#chats').children().hide();
-//   // }
-// });
-// if (obj.roomname === selectedRoom) {
-//   return obj.hasOwnProperty(selectedRoom)

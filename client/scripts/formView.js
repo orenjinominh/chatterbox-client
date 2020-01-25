@@ -11,14 +11,20 @@ var FormView = {
 
     event.preventDefault();
 
-    console.log('click!');
-
     if ($('#message').val()) {
       var message = {};
+      var selectedRoom = $('#rooms select').children('option').filter(':selected').text();
+      // console.log("SELECT --->", selectedRoom);
       message.username = App.username;
-      message.roomname = $('#roomInput').val() || 'Lobby';
+      message.roomname = ($('#roomInput').val() || selectedRoom) || 'Lobby';
       message.text = $('#message').val();
       Parse.create(message);
+
+      if ($('#roomInput').val()) {
+        RoomsView.renderRoom($('#roomInput').val());
+        $('roomInput').val('');
+        $('#chats').empty();
+      }
       MessagesView.renderMessage(message);
     }
   },
@@ -30,6 +36,3 @@ var FormView = {
 
 };
 
-// renderMessage: function(message) { // message = object below
-//   $('#chats').append(MessageView.render(message));
-// }

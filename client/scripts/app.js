@@ -20,24 +20,8 @@ var App = {
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
-      // // examine the response from the server request:
-      // console.log("DATA --->", data);
-
-      // if(!data.results || !data.results.length) {
-      //  return;
-      // }
-
       MessagesView.render(data.results);
       RoomsView.render(data.results);
-
-
-
-      // Messages.update(data.results, MessagesView.render)
-      // Rooms.update(data.results, RoomsView.render);
-
-
-
-
       callback();
     });
   },

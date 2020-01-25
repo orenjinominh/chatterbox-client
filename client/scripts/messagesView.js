@@ -1,12 +1,10 @@
 //for rendering messages on the page
-
-
 var MessagesView = {
 
   $chats: $('#chats'),
 
   initialize: function() {
-
+    Rooms.add();
 
   },
   // this converts to simple object
@@ -20,7 +18,6 @@ var MessagesView = {
       MessagesView.renderMessage(message);
       return message;
     });
-    // return array;
 
   },
 
@@ -29,13 +26,6 @@ var MessagesView = {
 
     $('#chats').prepend(MessageView.render(message));
   }
-  // clearAll: function() {
-  //   $('#chats').remove();
-  // }
+
 };
 
-// var message = {
-//   username: 'Mel Brooks',
-//   text: 'Never underestimate the power of the Schwartz!',
-//   roomname: 'lobby'
-// };

@@ -1,13 +1,12 @@
 var Rooms = {
   add: function() {
-    // $('#addRoom').on( "click", function() {
-    //   console.log("ADD ROOM ---->");
-    // });
-    // console.log("ADD ROOM ---->");
+    $('#addRoom').on( 'click', function() {
+      RoomsView.renderRoom($('#roomInput').val()); // puts input into dropdown
+      $('#roomInput').val('');
+      console.log("CLICK");
+      $('#chats').empty();
+    });
   }
-
-
-};
-
+}
 
 
