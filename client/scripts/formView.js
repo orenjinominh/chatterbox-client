@@ -11,12 +11,16 @@ var FormView = {
 
     event.preventDefault();
 
-    var message = {
-      username: App.username,
-      text: App.text,
-      roomname: '4chan'
-    };
     console.log('click!');
+
+    if ($('#message').val()) {
+      var message = {};
+      message.username = App.username;
+      message.roomname = $('#roomInput').val() || 'Lobby';
+      message.text = $('#message').val();
+      Parse.create(message);
+      MessagesView.renderMessage(message);
+    }
   },
 
   setStatus: function(active) {
@@ -25,3 +29,7 @@ var FormView = {
   }
 
 };
+
+// renderMessage: function(message) { // message = object below
+//   $('#chats').append(MessageView.render(message));
+// }

@@ -7,22 +7,35 @@ var MessagesView = {
 
   initialize: function() {
 
-    // this.clearAll();
-    // debugger;
-    // for (var i = 0; i < Messages.length; i++) { // i = 0
-    //   this.render(Messages[i]);
-    // }
+
+  },
+  // this converts to simple object
+  render: function(array) { // array = data.results which is an array
+    array.forEach(function(obj) {
+      var message = {};
+      message.username = obj.username;
+      message.roomname = obj.roomname;
+      message.text = obj.text;
+      // console.log("SIMPLEOBJ --->", message);
+      MessagesView.renderMessage(message);
+      return message;
+    });
+    // return array;
 
   },
 
-  render: function(message) { // message = data.results which is an array
+  // this puts object onto the DOM
+  renderMessage: function(message) { // message = object below
 
-      $('#chats').append(MessageView.render(message));
-
-
+    $('#chats').prepend(MessageView.render(message));
   }
-
   // clearAll: function() {
   //   $('#chats').remove();
   // }
 };
+
+// var message = {
+//   username: 'Mel Brooks',
+//   text: 'Never underestimate the power of the Schwartz!',
+//   roomname: 'lobby'
+// };

@@ -15,17 +15,29 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
-
+    // setInterval(function(){App.fetch();}, 2000);
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // // examine the response from the server request:
       // console.log("DATA --->", data);
-      // Messages = JSON.parse(JSON.stringify(data.results));
-      // console.log("HERE  --->", typeof Messages);
-      // Messages.update(data.results, MessagesView.render)
+
+      // if(!data.results || !data.results.length) {
+      //  return;
+      // }
+
       MessagesView.render(data.results);
+      RoomsView.render(data.results);
+
+
+
+      // Messages.update(data.results, MessagesView.render)
+      // Rooms.update(data.results, RoomsView.render);
+
+
+
+
       callback();
     });
   },
