@@ -26,6 +26,13 @@ var FormView = {
         $('#chats').empty();
       }
       MessagesView.renderMessage(message);
+
+      // App.fetch(function(){
+      //   App.stopSpinner();
+      //   Friends.initialize();
+      //   // RoomsView.renderRoom($('#roomInput').val());
+      //   // MessagesView.renderMessage(message);
+      // });
     }
   },
 

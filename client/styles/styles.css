@@ -63,6 +63,7 @@ form input[type=text] {
     padding: 5px;
     margin-bottom: 5px;
     background-color: #eee;
+    cursor: pointer;
 }
 
 .chat .username {
@@ -84,7 +85,7 @@ form input[type=text] {
 }
 
 .friend {
-    color: #fff;
-    background-color: #0090da;
+    color: rgb(170, 14, 14);
+    background-color: #1eff00;
 }
 

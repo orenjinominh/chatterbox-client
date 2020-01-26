@@ -30,11 +30,11 @@ var RoomsView = {
           message.roomname = obj.roomname;
           message.text = obj.text;
           MessagesView.renderMessage(message);
-          return message;
+          // return message;
         }
       });
     });
-
+    Friends.initialize();
   },
 
   // this renderRoom function takes a string and adds room to dropdown menu $('#rooms select')

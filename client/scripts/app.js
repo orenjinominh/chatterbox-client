@@ -1,5 +1,7 @@
 var App = {
 
+  localData: null,
+
   $spinner: $('.spinner img'),
 
   username: 'anonymous',
@@ -13,15 +15,21 @@ var App = {
 
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(App.stopSpinner);
+    App.fetch(function(){
+      App.stopSpinner();
+      Friends.initialize();
+    });
+
 
     // setInterval(function(){App.fetch();}, 2000);
   },
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
+      App.localData = data.results;
       MessagesView.render(data.results);
       RoomsView.render(data.results);
+      console.log("DATA --->", data.results)
       callback();
     });
   },
