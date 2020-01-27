@@ -13,9 +13,9 @@ var MessagesView = {
     array.forEach(function(obj) {
       var message = {};
       // console.log("I'm ---->", $(this), this)
-      if (Friends.allFriends[obj.username]) {
-        message.friends = true;
-      }
+      // if (Friends.allFriends[obj.username]) {
+      //   message.friends = true;
+      // }
       message.username = obj.username;
       message.roomname = obj.roomname;
       message.text = obj.text;
@@ -38,7 +38,7 @@ var MessagesView = {
     //   $('#chats').prepend(MessageView.render(message));
     // } else {
 
-      $('#chats').append(MessageView.render(message));
+    $('#chats').append(MessageView.render(message));
     // }
 
   }

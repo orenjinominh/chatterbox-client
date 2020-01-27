@@ -15,7 +15,7 @@ var App = {
 
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(function(){
+    App.fetch(function() {
       App.stopSpinner();
       Friends.initialize();
     });
@@ -29,7 +29,7 @@ var App = {
       App.localData = data.results;
       MessagesView.render(data.results);
       RoomsView.render(data.results);
-      console.log("DATA --->", data.results)
+      console.log('DATA --->', data.results);
       callback();
     });
   },
